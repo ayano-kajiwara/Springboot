@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymrleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<title>HelloWorld</title>
-	</head>
-	<body>
-		<h1><span th:text="${message}"></span></h1>
-	</body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${title}">Insert title here</h1>
+	<table border="1">
+		<tr>
+			<th>ユーザID</th>
+			<th>氏名</th>
+			<th>メールアドレス</th>
+		</tr>
+		<tr th:each="user : ${resultList}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.email}"></td>
+		</tr>
+	</table>
+</body>
 </html>
