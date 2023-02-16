@@ -4,4 +4,12 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password:
-  h2.console.enabled: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8

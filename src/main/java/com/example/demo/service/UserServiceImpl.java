@@ -9,7 +9,6 @@ import com.example.demo.repository.UserDao;
 
 /**
  * ユーザサービス実装クラス
- * @author hayakawa
  */
 @Service
 public class UserServiceImpl implements UserService {

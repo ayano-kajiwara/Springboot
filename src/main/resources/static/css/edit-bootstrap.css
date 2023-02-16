@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  letter-spacing: 0.1em;
+  text-align: justify;
+  line-height: 1.65;
+  color: #546e7a;
+}
+
+.input-size {
+  width: 30%;
+}
