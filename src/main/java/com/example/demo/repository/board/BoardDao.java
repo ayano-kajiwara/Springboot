@@ -15,4 +15,12 @@ public interface BoardDao {
 	 * @return つぶやき情報リスト
 	 */
 	List<Board> findAll();
+
+	/**
+	 * つぶやき情報1件取得
+	 * 
+	 * @param id つぶやき情報id
+	 * @return つぶやき情報
+	 */
+	Board findById(int id);
 }

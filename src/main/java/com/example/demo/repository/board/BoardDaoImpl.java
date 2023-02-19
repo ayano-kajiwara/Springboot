@@ -49,4 +49,21 @@ public class BoardDaoImpl implements BoardDao {
 		}
 		return list;
 	}
+
+	@Override
+	public Board findById(int id) {
+		// SQL定義
+		String sql = "SELECT id, title, content, updated_at FROM boards WHERE id = ?";
+		// SQL実行結果を取得
+		Map<String, Object> result = jdbcTemplate.queryForMap(sql, id);
+
+		// SQL実行結果をBoardへ詰め替え
+		Board board = new Board();
+		board.setId((int) result.get("id")); // id
+		board.setTitle((String) result.get("title")); // タイトル
+		board.setContent((String) result.get("content")); // つぶやき
+		board.setUpdatedAt(((Timestamp) result.get("updated_at")).toLocalDateTime()); // 更新日時
+
+		return board;
+	};
 }
