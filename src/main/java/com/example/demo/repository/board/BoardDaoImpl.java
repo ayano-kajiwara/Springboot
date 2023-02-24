@@ -13,6 +13,8 @@ import com.example.demo.entity.board.Board;
 
 /**
  * BoardDao実装クラス
+ * 
+ * @author hayakawa
  */
 @Repository
 public class BoardDaoImpl implements BoardDao {
@@ -22,6 +24,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	/**
 	 * コンストラクタ
+	 * 
 	 * @param jdbcTemplate JdbcTemplate
 	 */
 	@Autowired
@@ -66,4 +69,12 @@ public class BoardDaoImpl implements BoardDao {
 
 		return board;
 	};
+
+	@Override
+	public void insert(Board board) {
+		// SQL定義
+		String sql = "INSERT INTO boards(title, content, created_at, updated_at) VALUES (?, ?, ?, ?)";
+		// SQL実行
+		jdbcTemplate.update(sql, board.getTitle(), board.getContent(), board.getCreatedAt(), board.getUpdatedAt());
+	}
 }

@@ -23,4 +23,11 @@ public interface BoardDao {
 	 * @return つぶやき情報
 	 */
 	Board findById(int id);
+
+	/**
+	 * つぶやき情報登録
+	 * 
+	 * @param board お問い合わせ情報
+	 */
+	void insert(Board board);
 }

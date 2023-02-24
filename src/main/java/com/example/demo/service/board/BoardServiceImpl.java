@@ -12,25 +12,30 @@ import com.example.demo.repository.board.BoardDao;
  */
 @Service
 public class BoardServiceImpl implements BoardService {
-	// BoardDao
-	private final BoardDao dao;
+    // BoardDao
+    private final BoardDao dao;
 
-	/**
-	 * コンストラクタ
-	 * 
-	 * @param dao つぶやき情報
-	 */
-	public BoardServiceImpl(BoardDao dao) {
-		this.dao = dao;
-	}
+    /**
+     * コンストラクタ
+     * 
+     * @param dao つぶやき情報
+     */
+    public BoardServiceImpl(BoardDao dao) {
+        this.dao = dao;
+    }
 
-	@Override
-	public List<Board> getAll() {
-		return dao.findAll();
-	};
+    @Override
+    public List<Board> getAll() {
+        return dao.findAll();
+    };
 
-	@Override
-	public Board getBoard(int id) {
-		return dao.findById(id);
-	};
+    @Override
+    public Board getBoard(int id) {
+        return dao.findById(id);
+    };
+
+    @Override
+    public void save(Board board) {
+        dao.insert(board);
+    }
 }
