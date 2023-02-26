@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:replace="~{common/head::head}"></head>
+
+<body>
+  <div th:replace="~{common/header::header}"></div>
+  <main role="main" class="container">
+    <div class="starter-template">
+      <h1 th:text="${title}">Insert title here</h1>
+    </div>
+    <!-- form -->
+    <form method="post" action="#" th:action="@{/board/edit/confirm}" th:object="${boardForm}">
+      <!-- title -->
+      <div class="form-group">
+        <label for="title">タイトル</label>
+        <input type="text" name="title" class="form-control input-size" id="title" th:value="*{title}">
+      </div>
+      <div class="text-danger mb-4" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+      <!-- content -->
+      <div class="form-group">
+        <label for="content">つぶやき</label>
+        <textarea name="content" class="form-control" id="content" rows="3" th:field="*{content}"></textarea>
+      </div>
+      <div class="text-danger mb-4" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
+      <input th:if="${boardId}" type="hidden" name="boardId" th:value="${boardId}">
+      <!-- buttons -->
+      <div class="d-flex">
+        <!-- go back index -->
+        <div class="mr-2">
+          <a th:href="@{/board/show/{id}(id=${boardId})}">
+            <button type="button" class="btn btn-secondary" th:text="詳細へ戻る">button</button>
+          </a>
+        </div>
+        <!-- confirm -->
+        <div class="mr-2">
+          <button type="submit" class="btn btn-primary">つぶやき確認</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <div th:replace="~{common/script::script}"></div>
+
+</body>
+
+</html>

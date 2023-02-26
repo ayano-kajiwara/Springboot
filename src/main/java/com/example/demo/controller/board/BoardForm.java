@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 /**
  * つぶやきフォームクラス
  * 
- * @author hayakawa
  */
 public class BoardForm {
 

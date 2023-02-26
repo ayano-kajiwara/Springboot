@@ -14,7 +14,6 @@ import com.example.demo.entity.board.Board;
 /**
  * BoardDao実装クラス
  * 
- * @author hayakawa
  */
 @Repository
 public class BoardDaoImpl implements BoardDao {
@@ -76,5 +75,21 @@ public class BoardDaoImpl implements BoardDao {
 		String sql = "INSERT INTO boards(title, content, created_at, updated_at) VALUES (?, ?, ?, ?)";
 		// SQL実行
 		jdbcTemplate.update(sql, board.getTitle(), board.getContent(), board.getCreatedAt(), board.getUpdatedAt());
+	}
+
+	@Override
+	public void update(Board board) {
+		// SQL定義
+		String sql = "UPDATE boards SET title = ?, content = ?, updated_at = ? WHERE id = ?";
+		// SQL実行
+		jdbcTemplate.update(sql, board.getTitle(), board.getContent(), board.getUpdatedAt(), board.getId());
+	}
+
+	@Override
+	public void deleteById(int id) {
+		// SQL定義
+		String sql = "DELETE FROM boards WHERE id = ?";
+		// SQL実行
+		jdbcTemplate.update(sql, id);
 	}
 }

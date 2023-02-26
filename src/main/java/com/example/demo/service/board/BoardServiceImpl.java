@@ -38,4 +38,14 @@ public class BoardServiceImpl implements BoardService {
     public void save(Board board) {
         dao.insert(board);
     }
+
+    @Override
+    public void update(Board board) {
+        dao.update(board);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        dao.deleteById(id);
+    }
 }

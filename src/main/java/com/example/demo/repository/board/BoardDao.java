@@ -6,7 +6,6 @@ import com.example.demo.entity.board.Board;
 
 /**
  * BoardDaoインターフェース
- * 
  */
 public interface BoardDao {
 	/**
@@ -27,7 +26,21 @@ public interface BoardDao {
 	/**
 	 * つぶやき情報登録
 	 * 
-	 * @param board お問い合わせ情報
+	 * @param board つぶやき情報
 	 */
 	void insert(Board board);
+
+	/**
+	 * つぶやき情報更新
+	 * 
+	 * @param board つぶやき情報
+	 */
+	void update(Board board);
+
+	/**
+	 * つぶやき情報削除
+	 * 
+	 * @param id つぶやきID
+	 */
+	void deleteById(int id);
 }

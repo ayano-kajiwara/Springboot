@@ -29,4 +29,18 @@ public interface BoardService {
      * @param board つぶやき情報
      */
     void save(Board board);
+
+    /**
+     * つぶやき情報更新
+     * 
+     * @param board つぶやき情報
+     */
+    void update(Board board);
+
+    /**
+     * つぶやき情報削除
+     * 
+     * @param id つぶやきID
+     */
+    void deleteById(int id);
 }
